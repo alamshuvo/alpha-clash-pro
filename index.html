@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,17 @@
    <script src="https://cdn.tailwindcss.com"></script>
    <link rel="stylesheet" href="./style/styles.css">
 </head>
-<body>
-    <section class="home"></section>
+<body class="bg-[#010313] min-h-screen bg-[url(images/background.png)] bg-no-repeat bg-center">
+    <main class="">
+    <section class="home text-white flex flex-col  items-center min-h-screen justify-center">
+        <div class="flex flex-col items-center text-center gap-10">
+         <h1 class="lg:text-8xl text-5xl  uppercase font-black">ALPHABET CLASH</h1>
+        <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+        <button class="btn bg-white text-black text-2xl">Play Now</button>
+        </div>
+    </section>
     <section class="play-ground"></section>
     <section class="scoor"></section>
+</main>
 </body>
 </html>
