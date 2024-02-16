@@ -16,3 +16,16 @@ function addBgColorById(elementId) {
     const element=document.getElementById(elementId);
     element.classList.add('bg-orange-400');
 }
+function removeBgColorById(id) {
+    const element=document.getElementById(id);
+    element.classList.remove('bg-orange-400');
+}
+function setElementById(id,value) {
+    const element=document.getElementById(id);
+    element.innerText=value;
+}
+function getTextElementById(id){
+    const a =document.getElementById(id);
+    const element=a.innerText;
+    return element;
+}

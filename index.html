@@ -74,12 +74,12 @@
                 <button class="btn border-none">
                     <span>life</span>
                     <img class="bg-red-500 rounded-full" src="./images/Group 23.png" alt="" srcset="">
-                    <span>1</span>
+                    <span class="text-4xl text-black" id="life">5</span>
                   </button>
                 <button class="btn bg-purple-500 border-none">
                    <span>scor</span>
                    <img class="bg-slate-400 rounded-full" src="./images/monetization_on.png" alt="" srcset="">
-                   <span>1</span>
+                   <span class="text-4xl text-white" id="score">0</span>
                    
                   </button>
             </div>
@@ -87,13 +87,13 @@
     </section>
     <!--playground end -->
     <!-- scoor -->
-    <section id="score" class="scoor flex justify-center items-center min-h-screen hidden">
+    <section id="final-score" class="scoor flex justify-center items-center min-h-screen hidden">
         <div class="text-white  text-center bg-[#FFFFFF33] p-4 rounded-lg space-y-5">
             <h1 class="text-8xl">
                 <span class="font-extrabold">Score:</span>
-                <span>14</span>
+                <span id="final-score-end">14</span>
             </h1>
-            <button class="btn bg-white">Play again</button>
+            <button onclick="playAgain()" id="play-again" class="btn bg-white">Play again</button>
             <p>Practice makes you a pro</p>
         </div>
     </section>
