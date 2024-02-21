@@ -1,5 +1,7 @@
 const audio=new Audio();
 let isGamePlayOn=false;
+const artboard=document.getElementById("artboard");
+const modal=document.getElementById("modal");
 function handleBtnPress(e) {
     if (isGamePlayOn===false) {
         return;
@@ -26,14 +28,19 @@ function handleBtnPress(e) {
  else{
     audio.src="../audio/eror.mp3";
     audio.play();
+   
     const curentLifeScoreElement=document.getElementById("life");
     const curentLifeScoreText=curentLifeScoreElement.innerText;
     const curentLifeScoreNumber=parseInt(curentLifeScoreText);
     const newScore=curentLifeScoreNumber-1;
     curentLifeScoreElement.innerText=newScore;
+    const updatedLifePerci=newScore/5*100;
+    artboard.style.background=`linear-gradient(#FFFFFFB3 ${updatedLifePerci}%,red)`;
+    console.log(updatedLifePerci);
     if (newScore==0) {
         gameOver();
     }
+  
  }
  
 }
@@ -45,6 +52,8 @@ function continueGame() {
     const playGroundDisplay=document.getElementById("playgroun-display");
     playGroundDisplay.innerText=alphabate;
     addBgColorById(alphabate);
+    isGamePlayOn=true;
+    
   
     
 }
@@ -62,8 +71,8 @@ function gameOver() {
     setElementById("final-score-end",lastScore);
     const currentAlphabet = getTextElementById("playgroun-display");
     removeBgColorById(currentAlphabet);
-    isGamePlayOn=false;
-
+    isGamePlayOn = false;
+    artboard.style.background=`linear-gradient(#FFFFFFB3 100%,red)`;
 }
 function playAgain() {
     hideElementByID('final-score');
@@ -74,3 +83,13 @@ function playAgain() {
     setElementById('score',0);
     continueGame();
 }
+function modalOpen(e) {
+    if (e.clientY<10) {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+    }
+}
+function closeModal(){
+    modal.classList.add("hidden");
+}
+document.body.onmousemove=modalOpen
