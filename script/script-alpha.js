@@ -1,11 +1,19 @@
+const audio=new Audio();
+let isGamePlayOn=false;
 function handleBtnPress(e) {
+    if (isGamePlayOn===false) {
+        return;
+    }
  const playerPressed=e.key;
+ 
  if (playerPressed==='Escape') {
     gameOver();
  }
  const expectedPressed=document.getElementById("playgroun-display").innerText;
  const convertedExpectedPressed=expectedPressed.toLowerCase();
  if (playerPressed===convertedExpectedPressed) {
+    audio.src="../audio/sucess.mp3";
+    audio.play();
     removeBgColorById(convertedExpectedPressed);
     continueGame();
    const currentScoreElement=document.getElementById("score");
@@ -13,8 +21,11 @@ function handleBtnPress(e) {
    const currentScoreNumber=parseInt(curentScoreText);
    const newScore=currentScoreNumber+1;
    currentScoreElement.innerText=newScore;
+   
  }
  else{
+    audio.src="../audio/eror.mp3";
+    audio.play();
     const curentLifeScoreElement=document.getElementById("life");
     const curentLifeScoreText=curentLifeScoreElement.innerText;
     const curentLifeScoreNumber=parseInt(curentLifeScoreText);
@@ -34,11 +45,13 @@ function continueGame() {
     const playGroundDisplay=document.getElementById("playgroun-display");
     playGroundDisplay.innerText=alphabate;
     addBgColorById(alphabate);
+  
     
 }
 function play() {
     hideElementByID('home-screen');
     showElementById('playground');
+    isGamePlayOn=true;
     continueGame();
 }
 function gameOver() {
@@ -49,6 +62,7 @@ function gameOver() {
     setElementById("final-score-end",lastScore);
     const currentAlphabet = getTextElementById("playgroun-display");
     removeBgColorById(currentAlphabet);
+    isGamePlayOn=false;
 
 }
 function playAgain() {
