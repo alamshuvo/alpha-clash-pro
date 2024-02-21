@@ -84,7 +84,7 @@ function playAgain() {
     continueGame();
 }
 function modalOpen(e) {
-    if (e.clientY<10) {
+    if (e.clientY<20) {
         modal.classList.remove("hidden");
         modal.classList.add("flex");
     }
